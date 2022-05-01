@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, :before, :after {
+  box-sizing: inherit;
+}
+
+.pma__alerts-banner {
+  --PMA__ALERTS-BANNER--title-background: #016707;
+  --PMA__ALERTS-BANNER--title-text: white;
+  --PMA__ALERTS-BANNER--alerts-background: #b5a468;
+  --PMA__ALERTS-BANNER--alerts-text: black;
+}
+
+#pma__alerts-banner--link {
+  text-decoration: none;
+}
+
+.pma__words {
+  text-transform: uppercase;
+  color: navy;
+}
+
+.pma__words--alert {
+  color: #fff;
+  background-color: red;
+  padding: 3px;
+}
+
+header.pma {
+  height: 4rem;
+  background-color: #fff;
+  border-bottom: 1px solid #d1d1d1;
+  align-items: center;
+  padding: 0 1.5rem;
+  display: flex;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 1px 5px #0000001a;
+}
+
+section.pma {
+  padding: 20px;
+}
+
+code {
+  color: #fff;
+  background-color: #000;
+  padding: 5px;
+}
+
+</style>
+    <script src="/index.d31f7bf3.js" defer=""></script>
+    <script src="/index.2bb60b03.js" defer=""></script>
+    <title>Public Media Alerts</title>
+</head>
+<body>
+    <header class="pma">
+        <h1 class="pma__words">Public Media <span class="pma__words--alert">Alerts</span></h1>
+    </header>
+    <main>
+        <section class="pma">
+            <h1>Alerts Banner</h1>
+            <a id="pma__alerts-banner--link" href="https://wusfnews.wusf.usf.edu/weather">
+                <alerts-banner area="FL" class="pma__alerts-banner">Weather Alerts</alerts-banner>
+            </a>
+            <h4>Code to Implement</h4>
+            <code>
+                &lt;style&gt;
+                &lt;/style&gt;
+                <br><br>
+                &lt;alerts-banner area="FL" class="pma__alerts-banner"&gt;
+                Weather Alerts&lt;/alerts-banner&gt;
+            </code> 
+            
+        </section>
+        <section class="pma">
+            <alerts-module area="FL"></alerts-module>
+            <h4>Code to Implement</h4>
+            <code>
+                &lt;style&gt;
+                &lt;/style&gt;
+                <br><br>
+                &lt;alerts-module area="FL"&gt;&lt;/alerts-module&gt;
+            </code> 
+        </section>
+    </main>
+</body>
+</html>
