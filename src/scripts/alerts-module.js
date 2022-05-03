@@ -92,6 +92,10 @@ export class AlertsModule extends LitElement {
             header, ul {
                 padding-inline: 5px;
             }
+            article {
+                padding: 5px;
+            }
+            
         }
     `
 
@@ -126,7 +130,7 @@ export class AlertsModule extends LitElement {
                             <li class="alerts__item">${alert.properties.areaDesc.replaceAll(';', ',')}</li>
                             <li class="alerts__item margin-left">${alert.properties.ends ? moment(alert.properties.ends).format('ddd MMM D, h:mm a') :
                             moment(alert.properties.expires).format('ddd MMM D, h:mm a')}</li>
-                            <i class="alert__expand" @click=${this._open.bind(this, id)}>&#9660;</i>
+                            <i class="alert__expand" @click=${this._toggle.bind(this, id)}>&#9660;</i>
                         </ul>
                         <article id=details${id} class="invisible border__alert-summary">
                             ${alert.properties.description}
@@ -163,9 +167,9 @@ export class AlertsModule extends LitElement {
         })
     }
 
-    _open(id, e) {
-        const detailsEl = this.shadowRoot.querySelector(`#details${id}`)
-        const alertEl = this.shadowRoot.querySelector(`#alert${id}`)
+    _toggle(id, e) {
+        const detailsEl = this.renderRoot.querySelector(`#details${id}`)
+        const alertEl = this.renderRoot.querySelector(`#alert${id}`)
         detailsEl.classList.toggle('invisible')
         alertEl.classList.toggle('border__alert--collapsed')
         alertEl.classList.toggle('border__alert--expanded')

@@ -629,6 +629,10 @@ class AlertsModule extends _lit.LitElement {
             header, ul {
                 padding-inline: 5px;
             }
+            article {
+                padding: 5px;
+            }
+            
         }
     `;
     async firstUpdated() {
@@ -660,7 +664,7 @@ class AlertsModule extends _lit.LitElement {
                             <li class="alerts__item">${alert.properties.event}</li>
                             <li class="alerts__item">${alert.properties.areaDesc.replaceAll(';', ',')}</li>
                             <li class="alerts__item margin-left">${alert.properties.ends ? _momentDefault.default(alert.properties.ends).format('ddd MMM D, h:mm a') : _momentDefault.default(alert.properties.expires).format('ddd MMM D, h:mm a')}</li>
-                            <i class="alert__expand" @click=${this._open.bind(this, id)}>&#9660;</i>
+                            <i class="alert__expand" @click=${this._toggle.bind(this, id)}>&#9660;</i>
                         </ul>
                         <article id=details${id} class="invisible border__alert-summary">
                             ${alert.properties.description}
@@ -690,9 +694,9 @@ class AlertsModule extends _lit.LitElement {
             return alert.properties.event.toLowerCase().includes(this._searchText.toLowerCase()) || alert.properties.areaDesc.toLowerCase().includes(this._searchText.toLowerCase());
         });
     }
-    _open(id, e) {
-        const detailsEl = this.shadowRoot.querySelector(`#details${id}`);
-        const alertEl = this.shadowRoot.querySelector(`#alert${id}`);
+    _toggle(id, e) {
+        const detailsEl = this.renderRoot.querySelector(`#details${id}`);
+        const alertEl = this.renderRoot.querySelector(`#alert${id}`);
         detailsEl.classList.toggle('invisible');
         alertEl.classList.toggle('border__alert--collapsed');
         alertEl.classList.toggle('border__alert--expanded');
